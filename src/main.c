@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "util.h"
 
 int main(void)
 {
-    size_t x = 5;
+    int x = 5;
     int *arr = calloc(x, sizeof(int));
 
     if (!arr)
@@ -12,12 +11,19 @@ int main(void)
         return EXIT_FAILURE;
     }
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < x; i++)
     {
         arr[i] = i * 2;
     }
 
     printf("Array length: %ld\n", *arr / sizeof(arr[0]));
+
+    for (int i = 0; i < x; i++)
+    {
+        printf("%4d", arr[i]);
+    }
+
+    printf("\n");
 
     free(arr);
     return 0;
