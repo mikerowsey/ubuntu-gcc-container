@@ -1,20 +1,14 @@
 #include "util.h"
 
-#include <stdio.h>  /* fprintf, perror */
-#include <stdlib.h> /* malloc, calloc, exit, EXIT_FAILURE */
+#include <stdio.h>
+#include <stdlib.h>
 
-/* Clamp an integer value into the inclusive range [min, max]. */
 int clamp_int(int value, int min, int max) {
-    if (value < min) {
-        return min;
-    }
-    if (value > max) {
-        return max;
-    }
+    if (value < min) return min;
+    if (value > max) return max;
     return value;
 }
 
-/* Safe malloc: never returns NULL. */
 void *xmalloc(size_t size) {
     void *ptr = malloc(size);
     if (!ptr) {
@@ -24,7 +18,6 @@ void *xmalloc(size_t size) {
     return ptr;
 }
 
-/* Safe calloc: never returns NULL. */
 void *xcalloc(size_t count, size_t size) {
     void *ptr = calloc(count, size);
     if (!ptr) {
@@ -34,10 +27,8 @@ void *xcalloc(size_t count, size_t size) {
     return ptr;
 }
 
-/* Print an error message and exit. */
 void die(const char *message) {
-    if (message) {
+    if (message)
         fprintf(stderr, "%s\n", message);
-    }
     exit(EXIT_FAILURE);
 }
