@@ -1,0 +1,26 @@
+{
+  "name": "C Dev Starter",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "editor.formatOnSave": true,
+    "C_Cpp.formatting": "clangFormat",
+    "[c]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cmake-tools"
+  ],
+  "remoteUser": "vscode",
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt=seccomp=unconfined"
+  ],
+ "postCreateCommand": "set -ex; if [ ! -d \"$HOME/.dotfiles-basic\" ]; then git clone https://github.com/mikerowsey/dotfiles-basic.git \"$HOME/.dotfiles-basic\"; fi; cd \"$HOME/.dotfiles-basic\"; chmod +x bootstrap.sh; ./bootstrap.sh || echo 'bootstrap.sh failed (non-fatal)'; true"
+}
