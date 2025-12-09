@@ -10,7 +10,7 @@ int main(void) {
         arr[i] = i * 2;
     }
 
-    printf("Array length: %d\n", ARRAY_LEN((int[]){1,2,3,4}));
+    printf("Array length: %d\n", ARRAY_LEN(arr));
 
     free(arr);
     return 0;
