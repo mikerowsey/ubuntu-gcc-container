@@ -8,7 +8,8 @@ int main(void)
 
     if (!arr)
     {
-        return EXIT_FAILURE;
+        perror("calloc");
+        exit(EXIT_FAILURE);
     }
 
     for (int i = 0; i < x; i++)

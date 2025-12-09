@@ -3,8 +3,6 @@
 
 #include <stddef.h>
 
-#define ARRAY_LEN(a) ((int)(sizeof(a) / sizeof((a)[0])))
-
 int clamp_int(int value, int min, int max);
 
 void *xmalloc(size_t size);
