@@ -1,15 +1,16 @@
-CC=gcc
-CFLAGS=-std=c99 -Wall -Wextra -Werror -g
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -std=c11 -g -Iinclude
 
-SRC=src/main.c src/util.c
-OBJ=$(SRC:.c=.o)
+SRC = src/main.c src/util.c
+OBJ = $(SRC:.c=.o)
 
-TARGET=app
+all: app
 
-all: $(TARGET)
+app: $(OBJ)
+	$(CC) $(CFLAGS) -o app $(OBJ)
 
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+src/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJ) app
