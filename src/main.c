@@ -1,30 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "util.h"
 
 int main(void)
 {
-    int x = 5;
-    int *arr = calloc(x, sizeof(int));
+    const int SIZE = 5;
+    int *arr = xcalloc(SIZE, sizeof(int));
 
-    if (!arr)
+    for (int i = 0; i < SIZE; i++)
     {
-        perror("calloc");
-        exit(EXIT_FAILURE);
+        arr[i] = (i + 1) * 2;
     }
 
-    for (int i = 0; i < x; i++)
+    for (int i = 0; i < SIZE; i++)
     {
-        arr[i] = i * 2;
+        printf("arr[%d] = %d\n", i, arr[i]);
     }
-
-    printf("Array length: %ld\n", *arr / sizeof(arr[0]));
-
-    for (int i = 0; i < x; i++)
-    {
-        printf("%4d", arr[i]);
-    }
-
-    printf("\n");
 
     free(arr);
     return 0;
