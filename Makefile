@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -std=c11 -g -Iinclude
+CFLAGS = -Wall -Wextra -Werror -std=c99 -g -Iinclude
 
-SRC = src/main.c src/util.c
+SRC = src/main.c src/util.c src/testes.c
 OBJ = $(SRC:.c=.o)
 
 all: app
