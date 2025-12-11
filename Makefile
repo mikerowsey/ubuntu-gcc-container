@@ -27,7 +27,7 @@ endif
 # Common flags: Add include directory and generate dependency files
 CPPFLAGS = -I$(INCLUDE_DIR) -MMD -MP
 # LDFLAGS can be used for linker flags if needed
-LDFLAGS =
+LDFLAGS = -lm
 
 # Find all source files in the source directory
 SRCS := $(shell find $(SRC_DIR) -name "*.c")
@@ -54,7 +54,7 @@ release:
 # Rule to create necessary build directories
 $(BUILD_DIR)/$(TARGET): $(OBJS) | $(BUILD_DIR)
 	@echo "Linking $(BUILD) build: $@"
-	$(CC) $(LDFLAGS) $^ -o $@
+	$(CC) $^ $(LDFLAGS) -o $@
 
 # Generic rule to compile source files into object files in the build directory
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
