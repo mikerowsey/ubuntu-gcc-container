@@ -1,4 +1,4 @@
-# CS223 GCC Development Environment
+# GCC Development Environment
 
 This repository provides a lightweight Linux development environment aligned with the requirements of CS223. It uses GCC, GDB, make, bash, and standard Unix tools, matching the workflow expected on the department's Linux server. The container excludes Clang, LLVM, and Valgrind to keep the setup simple and consistent with coursework.
 
